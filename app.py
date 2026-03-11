@@ -9,9 +9,15 @@ st.set_page_config(page_title="Talking Rabbitt", layout="wide")
 st.title("🐰 Talking Rabbitt")
 st.subheader("Talk to your business data")
 
+api_key = st.secrets.get("OPENROUTER_API_KEY")
+
+if not api_key:
+    st.error("API key not found. Please add OPENROUTER_API_KEY in Streamlit Secrets.")
+    st.stop()
+
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key=st.secrets["OPENROUTER_API_KEY"]
+    api_key=api_key
 )
 uploaded_file = st.file_uploader("Upload your sales CSV", type=["csv"])
 
