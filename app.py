@@ -11,7 +11,7 @@ st.subheader("Talk to your business data")
 
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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"
+    api_key=st.secrets["OPENROUTER_API_KEY"]
 )
 uploaded_file = st.file_uploader("Upload your sales CSV", type=["csv"])
 
