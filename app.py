@@ -42,9 +42,13 @@ Give a short, clear answer.
 """
 
         response = client.chat.completions.create(
-            model="openai/gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt}],
-        )
+    model="meta-llama/llama-3-8b-instruct",
+    messages=[{"role": "user", "content": prompt}],
+    extra_headers={
+        "HTTP-Referer": "https://streamlit.io",
+        "X-Title": "Talking Rabbitt"
+    }
+)
 
         answer = response.choices[0].message.content
 
