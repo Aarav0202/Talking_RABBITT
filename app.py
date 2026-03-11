@@ -42,7 +42,7 @@ Give a short, clear answer.
 """
 
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="openai/gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
         )
 
